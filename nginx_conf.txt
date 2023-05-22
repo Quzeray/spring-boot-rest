@@ -1,0 +1,20 @@
+events {}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    server {
+        listen 80;
+        server_name  localhost;
+		
+        location /signin {
+			root "C:/Program Files (x86)/nginx/html/";
+			index index.html;
+        }
+
+        location / {
+            proxy_pass http://localhost:8080;
+        }
+	}
+}
